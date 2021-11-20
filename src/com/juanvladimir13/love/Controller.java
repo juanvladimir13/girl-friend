@@ -22,7 +22,7 @@ public class Controller {
   }
   
   private void showResponse(){
-    view.showMessage(model.getMessage());
+    view.showResponse(model.getMessage());
   }
  
   public void showForm(){

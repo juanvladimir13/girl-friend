@@ -92,7 +92,7 @@ public class View extends JFrame {
     repaint();
   }
 
-  public void showMessage(String message) {
+  public void showResponse(String message) {
     JOptionPane.showMessageDialog(this, message);
   }
 }
