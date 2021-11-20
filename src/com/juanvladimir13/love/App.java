@@ -15,7 +15,9 @@ public class App {
     dato.setQuestionAndMessage(question, message);
     dato.setTextOption(textOptionYes, textOptionNot);
     
-    Presentacion presentacion = new Presentacion(dato);
+    Negocio negocio = new Negocio(dato);
+
+    Presentacion presentacion = new Presentacion(negocio);
     presentacion.showForm();
   }
 }
