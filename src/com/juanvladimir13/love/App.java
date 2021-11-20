@@ -6,6 +6,16 @@ package com.juanvladimir13.love;
  */
 public class App {
   public static void main(String[] args) {    
-    new Form().setVisible(true);
+    String question = "Quieres ser mi novia ?";
+    String message = "Sabia que dirias que si !!";
+    String textOptionYes = "SI";
+    String textOptionNot = "NO";
+    
+    Model model = new Model();
+    model.setQuestionAndMessage(question, message);
+    model.setTextOption(textOptionYes, textOptionNot);
+    
+    Controller controller = new Controller(model);
+    controller.showForm();
   }
 }
