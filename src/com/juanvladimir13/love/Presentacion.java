@@ -16,15 +16,17 @@ import javax.swing.JOptionPane;
  * @author juanvladimir13<juanvladimir13@gmail.com>
  * @see https://github.com/juanvladimir13
  */
-public class View extends JFrame {
+public class Presentacion extends JFrame {
 
   public final JButton btnNo;
   public final JButton btnSi;
   private JLabel labPregunta;
 
-  public View(String question, String textOptionYes, String textOptionNot) {
-    super("Pliss");
+  private Negocio negocio;
 
+  public Presentacion(Dato dato) {
+    super("Pliss");
+    this.negocio = new Negocio(dato);
     // Centrar formulario en la pantalla
     int minWidth = 500;
     int minHeight = 400;
@@ -42,17 +44,17 @@ public class View extends JFrame {
     setLayout(null);
     labPregunta = new JLabel();
     labPregunta.setFont(new java.awt.Font("Dialog", 1, 18));
-    labPregunta.setText(question);
+    labPregunta.setText(negocio.getQuestion());
     labPregunta.setSize(300, 40);
     labPregunta.setLocation(50, 40);
 
     btnSi = new JButton();
-    btnSi.setText(textOptionYes);
+    btnSi.setText(negocio.getTextOptionYes());
     btnSi.setSize(70, 25);
     btnSi.setLocation(50, 80);
 
     btnNo = new JButton();
-    btnNo.setText(textOptionNot);
+    btnNo.setText(negocio.getTextOptionNot());
     btnNo.setSize(70, 25);
     btnNo.setLocation(150, 80);
 
@@ -61,21 +63,8 @@ public class View extends JFrame {
     add(btnSi);
     add(btnNo);
 
-    
-    btnNo.addMouseMotionListener(new MouseMotionAdapter() {
-      @Override
-      public void mouseMoved(MouseEvent evt) {
-        moveButton();
-      }
-    });
-    
-    btnNo.addFocusListener(new FocusAdapter() {
-      @Override
-      public void focusGained(FocusEvent evt) {
-        moveButton();
-      }
-    });
-    
+    bindComponentsToEvents();
+
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     pack();
   }
@@ -92,7 +81,28 @@ public class View extends JFrame {
     repaint();
   }
 
-  public void showMessage(String message) {
+  private void bindComponentsToEvents() {
+    btnSi.addActionListener((evt) -> showResponse(negocio.getMessage()));
+    btnNo.addMouseMotionListener(new MouseMotionAdapter() {
+      @Override
+      public void mouseMoved(MouseEvent evt) {
+        moveButton();
+      }
+    });
+
+    btnNo.addFocusListener(new FocusAdapter() {
+      @Override
+      public void focusGained(FocusEvent evt) {
+        moveButton();
+      }
+    });
+  }
+
+  public void showResponse(String message) {
     JOptionPane.showMessageDialog(this, message);
+  }
+
+  public void showForm() {
+    setVisible(true);
   }
 }

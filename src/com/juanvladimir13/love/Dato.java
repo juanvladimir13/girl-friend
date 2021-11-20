@@ -5,11 +5,11 @@ package com.juanvladimir13.love;
  * @author juanvladimir13<juanvladimir13@gmail.com>
  * @see https://github.com/juanvladimir13
  */
-public class Model {
+public class Dato {
   private String question, message;
   private String textOptionYes, textOptionNot;
 
-  public Model() {
+  public Dato() {
     this.question = "Quieres ser mi novia ?";
     this.message = "Sabia que dirias que si !!";
     this.textOptionYes = "SI";

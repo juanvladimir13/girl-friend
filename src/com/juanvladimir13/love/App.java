@@ -11,11 +11,11 @@ public class App {
     String textOptionYes = "SI";
     String textOptionNot = "NO";
     
-    Model model = new Model();
-    model.setQuestionAndMessage(question, message);
-    model.setTextOption(textOptionYes, textOptionNot);
+    Dato dato = new Dato();
+    dato.setQuestionAndMessage(question, message);
+    dato.setTextOption(textOptionYes, textOptionNot);
     
-    Controller controller = new Controller(model);
-    controller.showForm();
+    Presentacion presentacion = new Presentacion(dato);
+    presentacion.showForm();
   }
 }
