@@ -24,9 +24,9 @@ public class Presentacion extends JFrame {
 
   private Negocio negocio;
 
-  public Presentacion(Dato dato) {
+  public Presentacion(Negocio negocio) {
     super("Pliss");
-    this.negocio = new Negocio(dato);
+    this.negocio = negocio;
     // Centrar formulario en la pantalla
     int minWidth = 500;
     int minHeight = 400;
